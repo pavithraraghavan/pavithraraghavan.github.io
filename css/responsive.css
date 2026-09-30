@@ -1,0 +1,192 @@
+/* ==========================================================
+   TABLET / MOBILE
+========================================================== */
+
+@media (max-width: 800px) {
+
+  html {
+    scroll-padding-top: 60px;
+  }
+
+
+  /* Navigation */
+
+  .nav-links {
+    display: none;
+  }
+
+
+  /* Header no longer sticky on mobile */
+
+  .profile-header,
+  .profile-header.compact {
+    position: relative;
+
+    top: auto;
+
+    padding: 40px 0;
+  }
+
+
+  .profile-header-grid,
+  .profile-header.compact .profile-header-grid {
+    grid-template-columns: 1fr;
+
+    gap: 23px;
+
+    text-align: center;
+  }
+
+
+  /* Photo */
+
+  .profile-photo,
+  .profile-header.compact .profile-photo {
+    width: 165px;
+    height: 165px;
+
+    margin: 0 auto;
+
+    padding: 2px;
+  }
+
+
+  /* Restore normal header contents */
+
+  .profile-header.compact .profile-label {
+    display: block;
+  }
+
+  .profile-header.compact .profile-info {
+    display: block;
+  }
+
+  .profile-header.compact .profile-info h1 {
+    margin-bottom: 5px;
+
+    font-size: 2.25rem;
+  }
+
+  .profile-header.compact .profile-info h2 {
+    margin-bottom: 18px;
+
+    font-size: 1rem;
+  }
+
+
+  /* Details */
+
+  .profile-details,
+  .profile-header.compact .profile-details {
+    width: 100%;
+    min-width: 0;
+
+    padding: 11px 15px;
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(0, 0, 0, 0.48);
+    border-radius: 7px;
+
+    background: rgba(0, 0, 0, 0.10);
+
+    text-align: left;
+  }
+
+  .profile-header.compact .education-detail {
+    display: grid;
+  }
+
+  .profile-detail,
+  .profile-header.compact .profile-detail {
+    grid-template-columns: 80px 1fr;
+
+    padding: 3px 0;
+
+    font-size: 0.90rem;
+  }
+
+
+  /* Buttons */
+
+  .hero-buttons,
+  .profile-header.compact .hero-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-header.compact .research-button {
+    display: inline-block;
+  }
+
+  .profile-header.compact .hero-buttons .button {
+    padding: 8px 16px;
+
+    font-size: 0.90rem;
+  }
+
+
+  /* Main sections */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .research-section-header {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .project-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+
+    gap: 6px;
+  }
+
+  section {
+    padding: 46px 0;
+  }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 500px) {
+
+  .container {
+    width: 90%;
+  }
+
+  .profile-info h1,
+  .profile-header.compact .profile-info h1 {
+    font-size: 2.15rem;
+  }
+
+  .profile-info h2,
+  .profile-header.compact .profile-info h2 {
+    font-size: 1rem;
+  }
+
+  .profile-detail,
+  .profile-header.compact .profile-detail {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+
+    margin-bottom: 8px;
+  }
+
+  .detail-label {
+    color: #E9CCD3;
+  }
+
+}
