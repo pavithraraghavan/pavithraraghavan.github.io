@@ -1,0 +1,209 @@
+/* ==========================================================
+   GLOBAL VARIABLES
+========================================================== */
+
+:root {
+  --maroon-dark: #260910;
+  --maroon-mid: #42101E;
+  --maroon: #65182D;
+  --maroon-light: #7A1F35;
+
+  --black: #151515;
+
+  --beige: #F5F0E8;
+  --beige-light: #FAF7F1;
+  --beige-dark: #E9E0D4;
+  --beige-card: #EDE3D7;
+
+  --text: #4D4945;
+  --text-muted: #69635E;
+
+  --border: #D6CCC0;
+
+  --nav-height: 58px;
+
+  --container: 1080px;
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 150px;
+}
+
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  color: var(--black);
+  background: var(--beige);
+
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(var(--container), 88%);
+  margin: auto;
+}
+
+section {
+  padding: 56px 0;
+}
+
+
+/* ==========================================================
+   COMMON TYPOGRAPHY
+========================================================== */
+
+.section-title {
+  font-size: 1.85rem;
+  line-height: 1.2;
+
+  margin-bottom: 10px;
+
+  color: var(--black);
+
+  letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+  max-width: 720px;
+
+  margin-bottom: 30px;
+
+  color: var(--text-muted);
+}
+
+.small-heading {
+  margin-bottom: 5px;
+
+  color: var(--maroon);
+
+  font-size: 0.72rem;
+  font-weight: 750;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.button {
+  display: inline-block;
+
+  padding: 8px 16px;
+
+  border-radius: 5px;
+  border: 1px solid var(--black);
+
+  font-size: 0.90rem;
+  font-weight: 650;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--maroon);
+  color: white;
+}
+
+.button-primary:hover {
+  background: #4D1021;
+}
+
+.button-secondary {
+  background: var(--beige-light);
+  color: var(--black);
+}
+
+.button-secondary:hover {
+  background: #EFE6DA;
+}
+
+
+/* ==========================================================
+   TAGS
+========================================================== */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 16px;
+}
+
+.tag {
+  padding: 3px 9px;
+
+  border: 1px solid rgba(21, 21, 21, 0.25);
+  border-radius: 100px;
+
+  background: var(--beige-card);
+
+  color: #5D1A2D;
+
+  font-size: 0.76rem;
+}
+
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+main {
+  position: relative;
+  z-index: 100;
+
+  background: var(--beige);
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer {
+  padding: 18px;
+
+  border-top: 1px solid #000;
+
+  background: #110A0C;
+
+  color: #BBAEB1;
+
+  text-align: center;
+  font-size: 0.81rem;
+}
