@@ -89,26 +89,18 @@
   width: 100%;
 }
 
-/* ==========================================================
-   PROFILE HEADER
-========================================================== */
-
 .profile-header {
   position: sticky;
   top: var(--nav-height);
   z-index: 900;
 
-  /*
-   * Deliberately compact.
-   * Same size before and after scrolling.
-   */
-  padding: 22px 0 24px;
+  padding: 20px 0 22px;
 
   background:
     radial-gradient(
       circle at 78% 25%,
-      rgba(255, 255, 255, 0.09) 0%,
-      rgba(255, 255, 255, 0.02) 25%,
+      rgba(255,255,255,0.09) 0%,
+      rgba(255,255,255,0.02) 25%,
       transparent 42%
     ),
     linear-gradient(
@@ -124,18 +116,15 @@
   border-bottom: 1px solid var(--black);
 
   box-shadow:
-    0 7px 14px rgba(34, 10, 17, 0.16),
-    0 17px 28px rgba(34, 10, 17, 0.09);
+    0 7px 14px rgba(34,10,17,0.16),
+    0 17px 28px rgba(34,10,17,0.09);
 }
 
-
-/* Soft maroon shadow below header */
 
 .profile-header::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   right: 0;
   bottom: -15px;
@@ -147,24 +136,19 @@
   background:
     linear-gradient(
       to bottom,
-      rgba(55, 15, 27, 0.14),
-      rgba(55, 15, 27, 0.05),
+      rgba(55,15,27,0.14),
+      rgba(55,15,27,0.05),
       transparent
     );
 }
 
 
-/* ==========================================================
-   HEADER LAYOUT
-========================================================== */
+/* Main layout */
 
 .profile-header-grid {
   display: grid;
 
-  /*
-   * Photo | Main identity | Details/buttons
-   */
-  grid-template-columns: 138px minmax(250px, 0.9fr) minmax(380px, 1.25fr);
+  grid-template-columns: 135px 1fr;
 
   gap: 28px;
 
@@ -172,17 +156,13 @@
 }
 
 
-/* ==========================================================
-   PROFILE PHOTO
-========================================================== */
+/* Photo */
 
 .profile-photo {
-  width: 132px;
-  height: 132px;
+  width: 130px;
+  height: 130px;
 
   padding: 2px;
-
-  overflow: hidden;
 
   border: 1px solid var(--black);
   border-radius: 50%;
@@ -190,8 +170,11 @@
   background: var(--beige);
 
   box-shadow:
-    0 7px 18px rgba(0, 0, 0, 0.20);
+    0 7px 18px rgba(0,0,0,0.20);
+
+  overflow: hidden;
 }
+
 
 .profile-photo img {
   width: 100%;
@@ -206,27 +189,25 @@
 }
 
 
-/* ==========================================================
-   PROFILE INFO
-========================================================== */
+/* Information area */
 
 .profile-info {
-  /*
-   * Allow its children to participate in the wider header grid
-   * structure below.
-   */
-  display: contents;
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 0.9fr)
+    minmax(390px, 1.2fr);
+
+  column-gap: 35px;
+
+  align-items: center;
 }
 
 
-/* Left/middle identity block */
+/* Label */
 
 .profile-label {
-  grid-column: 2;
-
-  align-self: end;
-
-  margin-bottom: -1px;
+  grid-column: 1;
 
   color: #E9CCD3;
 
@@ -235,72 +216,67 @@
 
   letter-spacing: 0.11em;
   text-transform: uppercase;
+
+  margin-bottom: 2px;
 }
 
 
-/*
- * Because display:contents removes .profile-info from layout,
- * explicitly place the main elements.
- */
+/* Name */
 
 .profile-info h1 {
-  grid-column: 2;
+  grid-column: 1;
 
   color: white;
 
   font-size: clamp(1.9rem, 3vw, 2.55rem);
 
-  line-height: 1.02;
+  line-height: 1.03;
+
   letter-spacing: -0.04em;
 
-  margin-top: -10px;
+  margin-bottom: 4px;
 }
 
 
+/* Position */
+
 .profile-info h2 {
-  grid-column: 2;
+  grid-column: 1;
 
   color: #F0DCE1;
 
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   font-weight: 500;
 
-  line-height: 1.3;
-
-  margin-top: -13px;
+  margin: 0;
 }
 
 
-/* ==========================================================
-   PROFILE DETAILS
-========================================================== */
+/* Details on right */
 
 .profile-details {
-  grid-column: 3;
+  grid-column: 2;
 
   grid-row: 1 / span 3;
 
   width: 100%;
   min-width: 0;
 
-  padding: 10px 13px;
+  padding: 9px 13px;
 
   margin: 0;
 
-  border: 1px solid rgba(0, 0, 0, 0.48);
+  border: 1px solid rgba(0,0,0,0.50);
   border-radius: 6px;
 
-  background: rgba(0, 0, 0, 0.09);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  background: rgba(0,0,0,0.09);
 }
 
 
 .profile-detail {
   display: grid;
 
-  grid-template-columns: 75px 1fr;
+  grid-template-columns: 73px 1fr;
 
   gap: 9px;
 
@@ -308,7 +284,7 @@
 
   color: #E8DDE0;
 
-  font-size: 0.80rem;
+  font-size: 0.79rem;
 
   line-height: 1.4;
 }
@@ -321,18 +297,16 @@
 }
 
 
-/* ==========================================================
-   HEADER BUTTONS
-========================================================== */
+/* Buttons */
 
 .hero-buttons {
-  grid-column: 3;
+  grid-column: 2;
 
   display: flex;
 
   gap: 6px;
 
-  margin-top: -7px;
+  margin-top: 8px;
 }
 
 
@@ -341,36 +315,5 @@
 
   border-radius: 4px;
 
-  font-size: 0.76rem;
+  font-size: 0.75rem;
 }
-
-
-.profile-header .button-primary {
-  border: 1px solid var(--black);
-
-  background: var(--beige);
-
-  color: #34101A;
-}
-
-
-.profile-header .button-primary:hover {
-  background: white;
-}
-
-
-.profile-header .button-secondary {
-  border: 1px solid rgba(0, 0, 0, 0.72);
-
-  background: rgba(255, 255, 255, 0.04);
-
-  color: white;
-}
-
-
-.profile-header .button-secondary:hover {
-  border-color: var(--black);
-
-  background: rgba(0, 0, 0, 0.12);
-}
-
