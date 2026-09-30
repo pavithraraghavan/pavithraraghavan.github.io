@@ -7,2208 +7,760 @@
 
   <title>Pavithra Raghavan | Computer Vision & Generative AI</title>
 
-  <meta name="description"
-        content="Pavithra Raghavan — Computer Vision, Generative AI, 3D Human Pose Estimation, Human Motion Forecasting and Multimodal Learning.">
-
-  <style>
-
-    /* ==========================================================
-       COLOR PALETTE
-
-       Deep Maroon     #2B0B14
-       Maroon          #65182D
-       Accent Maroon   #7A1F35
-       Black           #151515
-       Warm Beige      #F5F0E8
-       Light Beige     #FAF7F1
-       Dark Beige      #E9E0D4
-       Body Text       #4D4945
-    ========================================================== */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
-
-      color: #151515;
-      background: #F5F0E8;
-      line-height: 1.65;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1080px, 88%);
-      margin: auto;
-    }
-
-    section {
-      padding: 56px 0;
-    }
-
-    .section-light {
-      background: #FAF7F1;
-    }
-
-    .section-beige {
-      background: #F5F0E8;
-    }
-
-    .section-title {
-      font-size: 1.85rem;
-      line-height: 1.2;
-      margin-bottom: 10px;
-      color: #151515;
-      letter-spacing: -0.025em;
-    }
-
-    .section-subtitle {
-      color: #69635E;
-      margin-bottom: 30px;
-      max-width: 720px;
-    }
-
-
-    /* ==========================================================
-       TOP NAVIGATION
-    ========================================================== */
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 2000;
-
-      background: #F7F2EA;
-
-      border-bottom: 1px solid rgba(21, 21, 21, 0.18);
-
-      box-shadow:
-        0 3px 15px rgba(30, 15, 18, 0.07);
-    }
-
-    .nav-container {
-      min-height: 64px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 1.08rem;
-      font-weight: 750;
-      color: #151515;
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-
-      font-size: 0.91rem;
-      color: #4F4946;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding: 20px 0;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a::after {
-      content: "";
-
-      position: absolute;
-      left: 0;
-      bottom: 15px;
-
-      width: 0;
-      height: 1px;
-
-      background: #65182D;
-
-      transition: width 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: #65182D;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-
-    /* ==========================================================
-       FIXED / STICKY PROFILE HEADER
-    ========================================================== */
-
-    .profile-header {
-      position: sticky;
-      top: 64px;
-      z-index: 900;
-
-      padding: 42px 0 46px;
-
-      background:
-        radial-gradient(
-          circle at 78% 25%,
-          rgba(255,255,255,0.10) 0%,
-          rgba(255,255,255,0.02) 25%,
-          transparent 42%
-        ),
-        linear-gradient(
-          118deg,
-          #260910 0%,
-          #42101E 38%,
-          #65182D 72%,
-          #7A1F35 100%
-        );
-
-      color: #FFFFFF;
-
-      border-bottom: 1px solid rgba(0,0,0,0.5);
-
-      /*
-         This creates the darker fading shadow underneath
-         the maroon header.
-      */
-      box-shadow:
-        0 8px 14px rgba(34, 10, 17, 0.20),
-        0 20px 35px rgba(34, 10, 17, 0.12);
-    }
-
-
-    /* EXTRA GRADIENT SHADOW BELOW HEADER */
-
-    .profile-header::after {
-      content: "";
-
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -22px;
-
-      height: 22px;
-
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(55, 15, 27, 0.18),
-          rgba(55, 15, 27, 0.07),
-          transparent
-        );
-    }
-
-
-    .profile-header-grid {
-      display: grid;
-
-      grid-template-columns: 185px 1fr;
-
-      gap: 44px;
-
-      align-items: center;
-    }
-
-
-    /* ==========================================================
-       PROFILE PHOTO
-    ========================================================== */
-
-    .profile-photo {
-      width: 178px;
-      height: 178px;
-
-      border-radius: 50%;
-
-      padding: 3px;
-
-      background: #F5F0E8;
-
-      /* thin black border */
-      border: 1px solid #111111;
-
-      box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.22);
-
-      overflow: hidden;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center;
-
-      border-radius: 50%;
-
-      display: block;
-    }
-
-
-    /* ==========================================================
-       PROFILE INFORMATION
-    ========================================================== */
-
-    .profile-label {
-      color: #E9CCD3;
-
-      font-size: 0.72rem;
-      font-weight: 750;
-
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-
-      margin-bottom: 5px;
-    }
-
-    .profile-info h1 {
-      font-size: clamp(2.25rem, 4vw, 3.35rem);
-
-      line-height: 1.04;
-
-      letter-spacing: -0.045em;
-
-      color: #FFFFFF;
-
-      margin-bottom: 5px;
-    }
-
-    .profile-info h2 {
-      color: #F0DCE1;
-
-      font-size: 1.12rem;
-      font-weight: 550;
-
-      margin-bottom: 18px;
-    }
-
-
-    /* PROFILE DETAILS FRAME */
-
-    .profile-details {
-      width: fit-content;
-
-      min-width: 520px;
-
-      padding: 12px 16px;
-
-      margin-bottom: 18px;
-
-      background: rgba(0,0,0,0.10);
-
-      border: 1px solid rgba(0,0,0,0.40);
-
-      border-radius: 8px;
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.05);
-    }
-
-    .profile-detail {
-      display: grid;
-
-      grid-template-columns: 82px 1fr;
-
-      gap: 12px;
-
-      padding: 3px 0;
-
-      color: #E8DDE0;
-
-      font-size: 0.90rem;
-    }
-
-    .detail-label {
-      color: #FFFFFF;
-
-      font-weight: 650;
-    }
-
-
-    /* ==========================================================
-       BUTTONS
-    ========================================================== */
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .button {
-      display: inline-block;
-
-      padding: 8px 16px;
-
-      border-radius: 6px;
-
-      font-weight: 650;
-      font-size: 0.90rem;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-
-    /* HEADER MAIN BUTTON */
-
-    .profile-header .button-primary {
-      background: #F5F0E8;
-
-      color: #34101A;
-
-      border: 1px solid #111111;
-    }
-
-    .profile-header .button-primary:hover {
-      background: #FFFFFF;
-
-      transform: translateY(-1px);
-    }
-
-
-    /* HEADER SECONDARY BUTTONS */
-
-    .profile-header .button-secondary {
-      background: rgba(255,255,255,0.04);
-
-      color: #FFFFFF;
-
-      border: 1px solid rgba(0,0,0,0.65);
-    }
-
-    .profile-header .button-secondary:hover {
-      background: rgba(0,0,0,0.12);
-
-      border-color: #111111;
-
-      transform: translateY(-1px);
-    }
-
-
-    /* NORMAL BUTTONS */
-
-    .button-primary {
-      background: #65182D;
-
-      color: #FFFFFF;
-
-      border: 1px solid #151515;
-    }
-
-    .button-primary:hover {
-      background: #4D1021;
-
-      transform: translateY(-1px);
-    }
-
-    .button-secondary {
-      background: #FAF7F1;
-
-      color: #151515;
-
-      border: 1px solid #151515;
-    }
-
-    .button-secondary:hover {
-      background: #EFE6DA;
-
-      transform: translateY(-1px);
-    }
-
-
-    /* ==========================================================
-       MAIN SCROLLING CONTENT
-    ========================================================== */
-
-    main {
-      position: relative;
-
-      z-index: 100;
-
-      background: #F5F0E8;
-    }
-
-
-    /* ==========================================================
-       ABOUT
-    ========================================================== */
-
-    .about-section {
-      background:
-        linear-gradient(
-          180deg,
-          #F1E9DE 0%,
-          #F6F0E7 42%,
-          #F5F0E8 100%
-        );
-
-      border-bottom: 1px solid #D9CEC1;
-    }
-
-    .about-heading {
-      margin-bottom: 27px;
-    }
-
-    .small-heading {
-      color: #65182D;
-
-      font-size: 0.72rem;
-      font-weight: 750;
-
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-
-      margin-bottom: 5px;
-    }
-
-    .about-grid {
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.55fr)
-        minmax(260px, 0.65fr);
-
-      gap: 55px;
-
-      align-items: center;
-    }
-
-    .about-text {
-      font-size: 0.96rem;
-
-      color: #4D4945;
-    }
-
-    .about-text p {
-      margin-bottom: 14px;
-    }
-
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-text strong {
-      color: #211D1B;
-
-      font-weight: 650;
-    }
-
-
-    /* ==========================================================
-       RESEARCH INTERESTS CARD
-    ========================================================== */
-
-    .interests {
-      width: 100%;
-
-      padding: 22px 23px;
-
-      background: #EDE3D7;
-
-      border: 1px solid #151515;
-
-      border-radius: 9px;
-
-      box-shadow:
-        5px 6px 0 rgba(101, 24, 45, 0.10);
-    }
-
-    .interests h3 {
-      margin-bottom: 12px;
-
-      color: #151515;
-
-      font-size: 1rem;
-    }
-
-    .interests ul {
-      list-style: none;
-    }
-
-    .interests li {
-      padding: 4px 0;
-
-      color: #504B47;
-
-      font-size: 0.91rem;
-    }
-
-    .interests li::before {
-      content: "—";
-
-      color: #65182D;
-
-      font-weight: 700;
-
-      margin-right: 8px;
-    }
-
-
-    /* ==========================================================
-       CURRENT RESEARCH
-    ========================================================== */
-
-    #research {
-      background: #FAF7F1;
-    }
-
-    .research-section-header {
-      display: grid;
-
-      grid-template-columns: auto 1fr;
-
-      gap: 20px;
-
-      align-items: center;
-
-      margin-bottom: 25px;
-    }
-
-    .research-section-header::after {
-      content: "";
-
-      height: 1px;
-
-      background:
-        linear-gradient(
-          to right,
-          #65182D,
-          rgba(101,24,45,0.05)
-        );
-    }
-
-    .research-title-wrap .eyebrow {
-      color: #65182D;
-
-      font-size: 0.71rem;
-      font-weight: 750;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.13em;
-
-      margin-bottom: 4px;
-    }
-
-    .research-title-wrap h2 {
-      font-size: 1.85rem;
-
-      line-height: 1.2;
-
-      color: #151515;
-
-      letter-spacing: -0.025em;
-    }
-
-    .research-intro {
-      color: #69635E;
-
-      max-width: 720px;
-
-      margin-bottom: 25px;
-    }
-
-
-    /* CURRENT RESEARCH CARD */
-
-    .research-card {
-      padding: 27px 29px;
-
-      border-radius: 10px;
-
-      background: #F5F0E8;
-
-      border: 1px solid #151515;
-
-      border-top: 2px solid #65182D;
-
-      box-shadow:
-        5px 7px 0 rgba(101,24,45,0.07);
-    }
-
-    .research-label {
-      display: inline-block;
-
-      color: #65182D;
-
-      background: #EDE3D7;
-
-      padding: 4px 10px;
-
-      border-radius: 100px;
-
-      border: 1px solid rgba(21,21,21,0.28);
-
-      font-size: 0.73rem;
-      font-weight: 750;
-
-      margin-bottom: 13px;
-
-      letter-spacing: 0.04em;
-    }
-
-    .research-card h3 {
-      font-size: 1.35rem;
-
-      line-height: 1.35;
-
-      margin-bottom: 6px;
-
-      color: #151515;
-    }
-
-    .research-location {
-      color: #716B65;
-
-      margin-bottom: 15px;
-
-      font-size: 0.91rem;
-    }
-
-    .research-card p {
-      color: #504B47;
-
-      margin-bottom: 11px;
-    }
-
-
-    /* ==========================================================
-       TAGS
-    ========================================================== */
-
-    .tags {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 6px;
-
-      margin-top: 16px;
-    }
-
-    .tag {
-      padding: 3px 9px;
-
-      border-radius: 100px;
-
-      background: #EDE3D7;
-
-      color: #5D1A2D;
-
-      border: 1px solid rgba(21,21,21,0.25);
-
-      font-size: 0.76rem;
-    }
-
-
-    /* ==========================================================
-       EXPERIENCE
-    ========================================================== */
-
-    #experience {
-      background: #F5F0E8;
-    }
-
-    .experience-item {
-      display: grid;
-
-      grid-template-columns: 165px 1fr;
-
-      gap: 32px;
-
-      padding: 24px 0;
-
-      border-bottom: 1px solid #D6CCC0;
-    }
-
-    .experience-date {
-      color: #756F69;
-
-      font-weight: 500;
-
-      font-size: 0.91rem;
-    }
-
-    .experience-content h3 {
-      font-size: 1.15rem;
-
-      color: #151515;
-    }
-
-    .experience-company {
-      color: #65182D;
-
-      font-weight: 650;
-
-      margin: 3px 0 12px;
-    }
-
-    .experience-content ul {
-      padding-left: 20px;
-
-      color: #504B47;
-    }
-
-    .experience-content li {
-      margin-bottom: 6px;
-    }
-
-
-    /* ==========================================================
-       SELECTED RESEARCH & PROJECTS
-    ========================================================== */
-
-    #projects {
-      background: #FAF7F1;
-    }
-
-    .project-grid {
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 18px;
-    }
-
-    .project-card {
-      border: 1px solid #151515;
-
-      border-radius: 9px;
-
-      padding: 20px;
-
-      background: #F5F0E8;
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-
-      box-shadow:
-        5px 7px 0 rgba(101,24,45,0.11);
-    }
-
-    .project-type {
-      color: #65182D;
-
-      font-size: 0.71rem;
-
-      letter-spacing: 0.07em;
-
-      font-weight: 750;
-
-      margin-bottom: 7px;
-    }
-
-    .project-card h3 {
-      font-size: 1.12rem;
-
-      line-height: 1.4;
-
-      margin-bottom: 9px;
-
-      color: #151515;
-    }
-
-    .project-card p {
-      color: #5B5651;
-
-      font-size: 0.92rem;
-    }
-
-
-    /* ==========================================================
-       PUBLICATIONS
-    ========================================================== */
-
-    #publications {
-      background: #F5F0E8;
-    }
-
-    .publication {
-      padding: 20px 0;
-
-      border-bottom: 1px solid #D6CCC0;
-    }
-
-    .publication h3 {
-      font-size: 1.07rem;
-
-      margin-bottom: 5px;
-
-      color: #151515;
-    }
-
-    .publication p {
-      color: #66605B;
-    }
-
-    .publication-venue {
-      color: #65182D !important;
-
-      font-weight: 650;
-
-      margin-top: 5px;
-    }
-
-
-    /* ==========================================================
-       TECHNICAL PROFILE
-    ========================================================== */
-
-    .technical-section {
-      background: #FAF7F1;
-    }
-
-    .skills-grid {
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 15px;
-    }
-
-    .skill-group {
-      padding: 17px 19px;
-
-      border: 1px solid #151515;
-
-      border-radius: 8px;
-
-      background: #F5F0E8;
-    }
-
-    .skill-group h3 {
-      margin-bottom: 6px;
-
-      color: #65182D;
-
-      font-size: 0.94rem;
-    }
-
-    .skill-group p {
-      color: #5D5853;
-
-      font-size: 0.91rem;
-    }
-
-
-    /* ==========================================================
-       EDUCATION
-    ========================================================== */
-
-    .education-section {
-      background: #F5F0E8;
-    }
-
-    .education-item {
-      margin-bottom: 24px;
-    }
-
-    .education-item h3 {
-      color: #151515;
-
-      font-size: 1.10rem;
-    }
-
-    .education-item .degree {
-      color: #65182D;
-
-      font-weight: 650;
-
-      margin: 2px 0;
-    }
-
-    .education-item p {
-      color: #66605B;
-    }
-
-
-    /* ==========================================================
-       CONTACT
-    ========================================================== */
-
-    .contact {
-      text-align: center;
-
-      background:
-        linear-gradient(
-          115deg,
-          #1B080D,
-          #34101A,
-          #501326
-        );
-
-      color: #FFFFFF;
-
-      border-top: 1px solid #111111;
-    }
-
-    .contact .section-title {
-      color: #FFFFFF;
-    }
-
-    .contact p {
-      max-width: 620px;
-
-      margin: 0 auto 24px;
-
-      color: #D7CACD;
-    }
-
-    .contact-buttons {
-      display: flex;
-
-      justify-content: center;
-
-      flex-wrap: wrap;
-
-      gap: 9px;
-    }
-
-    .contact .button-primary {
-      background: #F5F0E8;
-
-      color: #301018;
-
-      border: 1px solid #111111;
-    }
-
-    .contact .button-secondary {
-      background: transparent;
-
-      color: #FFFFFF;
-
-      border: 1px solid #111111;
-    }
-
-    .contact .button-secondary:hover {
-      background: rgba(0,0,0,0.15);
-
-      color: #FFFFFF;
-    }
-
-
-    /* ==========================================================
-       FOOTER
-    ========================================================== */
-
-    footer {
-      background: #110A0C;
-
-      color: #BBAEB1;
-
-      text-align: center;
-
-      padding: 18px;
-
-      font-size: 0.81rem;
-
-      border-top: 1px solid #000000;
-    }
-
-
-    /* ==========================================================
-       MOBILE
-    ========================================================== */
-
-    @media (max-width: 800px) {
-
-      /*
-         On smaller screens the profile header should NOT remain
-         sticky because it would occupy most of the display.
-      */
-
-      .profile-header {
-        position: relative;
-        top: auto;
-
-        padding: 40px 0;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .profile-header-grid {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        gap: 23px;
-      }
-
-      .profile-photo {
-        margin: 0 auto;
-
-        width: 165px;
-        height: 165px;
-      }
-
-      .profile-details {
-        min-width: 0;
-
-        width: 100%;
-
-        text-align: left;
-      }
-
-      .profile-detail {
-        grid-template-columns: 80px 1fr;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-
-        gap: 28px;
-      }
-
-      .research-section-header {
-        grid-template-columns: 1fr;
-
-        gap: 8px;
-      }
-
-      .project-grid,
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .experience-item {
-        grid-template-columns: 1fr;
-
-        gap: 6px;
-      }
-
-      section {
-        padding: 46px 0;
-      }
-    }
-
-
-    @media (max-width: 500px) {
-
-      .container {
-        width: 90%;
-      }
-
-      .profile-info h1 {
-        font-size: 2.25rem;
-      }
-
-      .profile-info h2 {
-        font-size: 1rem;
-      }
-
-      .profile-detail {
-        grid-template-columns: 1fr;
-
-        gap: 0;
-
-        margin-bottom: 8px;
-      }
-
-      .detail-label {
-        color: #E9CCD3;
-      }
-
-    }
-
-  </style>
+  <meta
+    name="description"
+    content="Pavithra Raghavan — Computer Vision, Generative AI, 3D Human Pose Estimation, Human Motion Forecasting and Multimodal Learning."
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 
 <body>
 
+  <!-- ======================================================
+       NAVIGATION
+  ======================================================= -->
 
-<!-- ==========================================================
-     TOP NAVIGATION
-========================================================== -->
+  <nav class="navbar">
 
-<nav>
+    <div class="container nav-container">
 
-  <div class="container nav-container">
+      <a class="logo" href="#">
+        PR
+      </a>
 
-    <a class="logo" href="#">
-      Pavithra Raghavan
-    </a>
-
-    <div class="nav-links">
-
-      <a href="#about">About</a>
-
-      <a href="#research">Research</a>
-
-      <a href="#experience">Experience</a>
-
-      <a href="#projects">Projects</a>
-
-      <a href="#publications">Publications</a>
-
-      <a href="#contact">Contact</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
 
     </div>
 
-  </div>
-
-</nav>
+  </nav>
 
 
+  <!-- ======================================================
+       PROFILE HEADER
+  ======================================================= -->
 
-<!-- ==========================================================
-     PROFILE HEADER
-========================================================== -->
+  <header class="profile-header" id="profileHeader">
 
-<header class="profile-header">
+    <div class="container profile-header-grid">
 
-  <div class="container profile-header-grid">
-
-
-    <!-- PROFILE PHOTO -->
-
-    <div class="profile-photo">
-
-      <img
-        src="Pavithra_profile.jpg"
-        alt="Pavithra Raghavan">
-
-    </div>
-
-
-
-    <!-- PROFILE INFORMATION -->
-
-    <div class="profile-info">
-
-
-      <div class="profile-label">
-
-        Computer Vision · Generative AI · 3D Vision
-
+      <div class="profile-photo">
+        <img
+          src="assets/Pavithra_profile.jpg"
+          alt="Pavithra Raghavan"
+        >
       </div>
 
 
-      <h1>
-        Pavithra Raghavan
-      </h1>
+      <div class="profile-info">
 
-
-      <h2>
-        Computer Vision & Generative AI
-      </h2>
-
-
-
-      <!-- PROFILE DETAILS -->
-
-      <div class="profile-details">
-
-
-        <div class="profile-detail">
-
-          <span class="detail-label">
-            Current
-          </span>
-
-          <span>
-            Master's Thesis Researcher · Computer Vision Group
-          </span>
-
+        <div class="profile-label">
+          Computer Vision · Generative AI · 3D Vision
         </div>
 
-
-        <div class="profile-detail">
-
-          <span class="detail-label">
-            Education
-          </span>
-
-          <span>
-            M.Sc. Computer Science · University of Bonn
-          </span>
-
-        </div>
-
-
-        <div class="profile-detail">
-
-          <span class="detail-label">
-            Focus
-          </span>
-
-          <span>
-            3D Human Pose Estimation · Human Motion Forecasting
-          </span>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- BUTTONS -->
-
-      <div class="hero-buttons">
-
-
-        <a
-          class="button button-primary"
-          href="#research">
-
-          View Research
-
-        </a>
-
-
-        <a
-          class="button button-secondary"
-          href="https://github.com/pavithraraghavan"
-          target="_blank">
-
-          GitHub
-
-        </a>
-
-
-        <a
-          class="button button-secondary"
-          href="Pavithra_Raghavan_CV.pdf"
-          target="_blank">
-
-          CV
-
-        </a>
-
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</header>
-
-
-
-<!-- ==========================================================
-     SCROLLING CONTENT
-========================================================== -->
-
-<main>
-
-
-
-<!-- ==========================================================
-     ABOUT
-========================================================== -->
-
-<section id="about" class="about-section">
-
-  <div class="container">
-
-
-    <div class="about-heading">
-
-      <div class="small-heading">
-        ABOUT
-      </div>
-
-      <h2 class="section-title">
-        Research Profile
-      </h2>
-
-    </div>
-
-
-
-    <div class="about-grid">
-
-
-      <div class="about-text">
-
-
-        <p>
-
-          My work spans computer vision and generative AI, with experience
-          in <strong>3D human pose and motion modelling, flow-based
-          generative models, vision-language systems, multimodal learning
-          and reinforcement learning</strong>.
-
-        </p>
-
-
-        <p>
-
-          I am currently completing my Master's thesis in the
-          <strong>Computer Vision Group at the University of Bonn</strong>,
-          where I investigate generative approaches for monocular 3D human
-          pose estimation and human motion forecasting.
-
-        </p>
-
-
-        <p>
-
-          Previously, as a Student Research Assistant at
-          <strong>CCIBonn.ai, University Hospital Bonn</strong>, I worked
-          on multimodal vision-language models for radiology report
-          generation, reinforcement-learning-based fine-tuning, and
-          large-scale PyTorch training and evaluation pipelines.
-
-        </p>
-
-
-        <p>
-
-          I am particularly interested in learning-based systems that can
-          perceive, model and predict people, motion and dynamic visual
-          environments, with broader interests in multimodal and embodied
-          intelligence.
-
-        </p>
-
-
-      </div>
-
-
-
-      <aside class="interests">
-
-
-        <h3>
-          Research Interests
-        </h3>
-
-
-        <ul>
-
-          <li>Computer Vision & 3D Vision</li>
-
-          <li>Human Pose & Motion Modelling</li>
-
-          <li>Generative & Flow-Based Models</li>
-
-          <li>Vision-Language Models</li>
-
-          <li>Multimodal Learning</li>
-
-          <li>Embodied AI & Perception</li>
-
-        </ul>
-
-
-      </aside>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==========================================================
-     CURRENT RESEARCH
-========================================================== -->
-
-<section id="research">
-
-  <div class="container">
-
-
-    <div class="research-section-header">
-
-
-      <div class="research-title-wrap">
-
-
-        <div class="eyebrow">
-          Research Focus
-        </div>
-
+        <h1>Pavithra Raghavan</h1>
 
         <h2>
-          Current Research
+          Computer Vision & Generative AI
         </h2>
 
 
-      </div>
-
-
-    </div>
-
-
-
-    <p class="research-intro">
-
-      My current Master's thesis research at the Computer Vision Group,
-      University of Bonn, focuses on generative modelling for human
-      pose estimation and future motion prediction.
-
-    </p>
-
-
-
-    <div class="research-card">
-
-
-      <span class="research-label">
-        MASTER'S THESIS · 2026
-      </span>
-
-
-      <h3>
-        Monocular 3D Pose Estimation and Action Forecasting
-      </h3>
-
-
-      <div class="research-location">
-
-        Computer Vision Group · University of Bonn · May 2026 – Present
-
-      </div>
-
-
-      <p>
-
-        Investigating flow matching-based generative models for
-        monocular 3D human pose estimation with probabilistic informed
-        pose initialization and multi-hypothesis inference.
-
-      </p>
-
-
-      <p>
-
-        I am also exploring temporal skeletal representations for
-        forecasting future human motion from monocular observations,
-        with quantitative evaluation on Human3.6M.
-
-      </p>
-
-
-      <div class="tags">
-
-        <span class="tag">PyTorch</span>
-
-        <span class="tag">Flow Matching</span>
-
-        <span class="tag">3D Human Pose</span>
-
-        <span class="tag">Motion Forecasting</span>
-
-        <span class="tag">Human3.6M</span>
-
-        <span class="tag">OpenCV</span>
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ==========================================================
-     RESEARCH EXPERIENCE
-========================================================== -->
-
-<section id="experience">
-
-  <div class="container">
-
-
-    <h2 class="section-title">
-      Research Experience
-    </h2>
-
-
-    <p class="section-subtitle">
-
-      Research experience spanning computer vision, multimodal AI,
-      generative modelling and reinforcement learning.
-
-    </p>
-
-
-
-    <div class="experience-item">
-
-
-      <div class="experience-date">
-
-        May 2025 – 2026
-
-      </div>
-
-
-
-      <div class="experience-content">
-
-
-        <h3>
-          Student Research Assistant (HiWi)
-        </h3>
-
-
-        <div class="experience-company">
-
-          CCIBonn.ai · University Hospital Bonn
+        <div class="profile-details">
+
+          <div class="profile-detail">
+            <span class="detail-label">Current</span>
+            <span>
+              Master's Thesis Researcher · Computer Vision Group
+            </span>
+          </div>
+
+          <div class="profile-detail education-detail">
+            <span class="detail-label">Education</span>
+            <span>
+              M.Sc. Computer Science · University of Bonn
+            </span>
+          </div>
+
+          <div class="profile-detail">
+            <span class="detail-label">Focus</span>
+            <span>
+              3D Human Pose Estimation · Human Motion Forecasting
+            </span>
+          </div>
 
         </div>
 
 
-        <ul>
+        <div class="hero-buttons">
 
+          <a
+            class="button button-primary research-button"
+            href="#research"
+          >
+            View Research
+          </a>
 
-          <li>
+          <a
+            class="button button-secondary"
+            href="https://github.com/pavithraraghavan"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
 
-            Designed and trained multimodal vision-language models
-            for automatic radiology report generation from multi-view
-            chest X-rays.
-
-          </li>
-
-
-          <li>
-
-            Implemented reinforcement learning fine-tuning using
-            SCST, PPO and GRPO to optimize report quality and
-            clinical factuality.
-
-          </li>
-
-
-          <li>
-
-            Developed distributed PyTorch training, inference and
-            evaluation pipelines for large-scale medical imaging
-            datasets.
-
-          </li>
-
-
-        </ul>
-
-
-
-        <div class="tags">
-
-          <span class="tag">PyTorch</span>
-
-          <span class="tag">HuggingFace</span>
-
-          <span class="tag">InternVL</span>
-
-          <span class="tag">Vision-Language Models</span>
-
-          <span class="tag">PPO</span>
-
-          <span class="tag">GRPO</span>
-
-          <span class="tag">SCST</span>
+          <a
+            class="button button-secondary"
+            href="assets/Pavithra_Raghavan_CV.pdf"
+            target="_blank"
+          >
+            CV
+          </a>
 
         </div>
-
 
       </div>
 
-
     </div>
 
-
-  </div>
-
-</section>
+  </header>
 
 
+  <!-- ======================================================
+       PAGE CONTENT
+  ======================================================= -->
 
-<!-- ==========================================================
-     SELECTED RESEARCH & PROJECTS
-========================================================== -->
-
-<section id="projects">
-
-  <div class="container">
+  <main>
 
 
-    <h2 class="section-title">
-      Selected Research & Projects
-    </h2>
+    <!-- ABOUT -->
 
+    <section id="about" class="about-section">
 
-    <p class="section-subtitle">
+      <div class="container">
 
-      Selected computer vision, machine learning and deep learning
-      work from my academic and research experience.
+        <div class="about-heading">
 
-    </p>
+          <div class="small-heading">
+            ABOUT
+          </div>
 
+          <h2 class="section-title">
+            Research Profile
+          </h2>
 
-
-    <div class="project-grid">
-
-
-
-      <article class="project-card">
-
-
-        <div class="project-type">
-          COMPUTER VISION
         </div>
 
 
-        <h3>
+        <div class="about-grid">
 
-          Instance Segmentation of Buildings from Satellite Imagery
+          <div class="about-text">
 
-        </h3>
+            <p>
+              My work spans computer vision and generative AI,
+              with experience in
+              <strong>
+                3D human pose and motion modelling,
+                flow-based generative models,
+                vision-language systems,
+                multimodal learning and reinforcement learning
+              </strong>.
+            </p>
+
+            <p>
+              I am currently completing my Master's thesis in the
+              <strong>
+                Computer Vision Group at the University of Bonn
+              </strong>,
+              where I investigate generative approaches for
+              monocular 3D human pose estimation and human motion
+              forecasting.
+            </p>
+
+            <p>
+              Previously, as a Student Research Assistant at
+              <strong>
+                CCIBonn.ai, University Hospital Bonn
+              </strong>,
+              I worked on multimodal vision-language models for
+              radiology report generation, reinforcement-learning-based
+              fine-tuning, and large-scale PyTorch training and
+              evaluation pipelines.
+            </p>
+
+            <p>
+              I am particularly interested in learning-based systems
+              that can perceive, model and predict people, motion and
+              dynamic visual environments, with broader interests in
+              multimodal and embodied intelligence.
+            </p>
+
+          </div>
 
 
-        <p>
+          <aside class="interests">
 
-          Developed a Mask R-CNN pipeline for building extraction
-          from high-resolution satellite imagery, with contour-based
-          geometric refinement for improved boundary accuracy.
+            <h3>Research Interests</h3>
 
+            <ul>
+              <li>Computer Vision & 3D Vision</li>
+              <li>Human Pose & Motion Modelling</li>
+              <li>Generative & Flow-Based Models</li>
+              <li>Vision-Language Models</li>
+              <li>Multimodal Learning</li>
+              <li>Embodied AI & Perception</li>
+            </ul>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CURRENT RESEARCH -->
+
+    <section id="research">
+
+      <div class="container">
+
+        <div class="research-section-header">
+
+          <div class="research-title-wrap">
+
+            <div class="eyebrow">
+              Research Focus
+            </div>
+
+            <h2>Current Research</h2>
+
+          </div>
+
+        </div>
+
+
+        <p class="research-intro">
+          My current Master's thesis research at the Computer Vision
+          Group, University of Bonn, focuses on generative modelling
+          for human pose estimation and future motion prediction.
         </p>
 
 
-        <div class="tags">
+        <div class="research-card">
 
-          <span class="tag">PyTorch</span>
+          <span class="research-label">
+            MASTER'S THESIS · 2026
+          </span>
 
-          <span class="tag">Mask R-CNN</span>
+          <h3>
+            Monocular 3D Pose Estimation and Action Forecasting
+          </h3>
 
-          <span class="tag">OpenCV</span>
+          <div class="research-location">
+            Computer Vision Group · University of Bonn ·
+            May 2026 – Present
+          </div>
 
-          <span class="tag">Remote Sensing</span>
+          <p>
+            Investigating flow matching-based generative models
+            for monocular 3D human pose estimation with probabilistic
+            informed pose initialization and multi-hypothesis
+            inference.
+          </p>
+
+          <p>
+            I am also exploring temporal skeletal representations
+            for forecasting future human motion from monocular
+            observations, with quantitative evaluation on Human3.6M.
+          </p>
+
+
+          <div class="tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Flow Matching</span>
+            <span class="tag">3D Human Pose</span>
+            <span class="tag">Motion Forecasting</span>
+            <span class="tag">Human3.6M</span>
+            <span class="tag">OpenCV</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESEARCH EXPERIENCE -->
+
+    <section id="experience">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Research Experience
+        </h2>
+
+        <p class="section-subtitle">
+          Research experience spanning computer vision,
+          multimodal AI, generative modelling and reinforcement
+          learning.
+        </p>
+
+
+        <div class="experience-item">
+
+          <div class="experience-date">
+            May 2025 – 2026
+          </div>
+
+
+          <div class="experience-content">
+
+            <h3>
+              Student Research Assistant (HiWi)
+            </h3>
+
+            <div class="experience-company">
+              CCIBonn.ai · University Hospital Bonn
+            </div>
+
+            <ul>
+              <li>
+                Designed and trained multimodal vision-language
+                models for automatic radiology report generation
+                from multi-view chest X-rays.
+              </li>
+
+              <li>
+                Implemented reinforcement learning fine-tuning
+                using SCST, PPO and GRPO to optimize report
+                quality and clinical factuality.
+              </li>
+
+              <li>
+                Developed distributed PyTorch training, inference
+                and evaluation pipelines for large-scale medical
+                imaging datasets.
+              </li>
+            </ul>
+
+
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">HuggingFace</span>
+              <span class="tag">InternVL</span>
+              <span class="tag">Vision-Language Models</span>
+              <span class="tag">PPO</span>
+              <span class="tag">GRPO</span>
+              <span class="tag">SCST</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SELECTED RESEARCH & PROJECTS -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Selected Research & Projects
+        </h2>
+
+        <p class="section-subtitle">
+          Selected computer vision, machine learning and
+          deep learning work from my academic and research
+          experience.
+        </p>
+
+
+        <div class="project-grid">
+
+
+          <article class="project-card">
+
+            <div class="project-type">
+              COMPUTER VISION
+            </div>
+
+            <h3>
+              Instance Segmentation of Buildings from
+              Satellite Imagery
+            </h3>
+
+            <p>
+              Developed a Mask R-CNN pipeline for building
+              extraction from high-resolution satellite imagery,
+              with contour-based geometric refinement for
+              improved boundary accuracy.
+            </p>
+
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Mask R-CNN</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">Remote Sensing</span>
+            </div>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-type">
+              NATURAL LANGUAGE PROCESSING
+            </div>
+
+            <h3>
+              Multilingual Article Classification
+            </h3>
+
+            <p>
+              Built multilingual document classifiers using
+              XLM-R and mBERT with attention mechanisms for
+              cross-lingual news classification.
+            </p>
+
+            <div class="tags">
+              <span class="tag">XLM-R</span>
+              <span class="tag">mBERT</span>
+              <span class="tag">Transformers</span>
+              <span class="tag">PyTorch</span>
+            </div>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-type">
+              SEQUENTIAL LEARNING
+            </div>
+
+            <h3>
+              Personalized Sequential POI Recommendation
+            </h3>
+
+            <p>
+              Designed an LSTM-based sequential recommendation
+              model using spatial and temporal feature
+              engineering for personalized point-of-interest
+              prediction.
+            </p>
+
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Sequential Recommendation</span>
+              <span class="tag">Geospatial Features</span>
+            </div>
+
+          </article>
+
+
+          <article class="project-card">
+
+            <div class="project-type">
+              COMPUTER VISION
+            </div>
+
+            <h3>
+              Deepfake Video Detection
+            </h3>
+
+            <p>
+              Developed a frame-level deepfake detection pipeline
+              using handcrafted visual features and an MLP
+              classifier, evaluated on FaceForensics++.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">MLP</span>
+              <span class="tag">FaceForensics++</span>
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PUBLICATIONS -->
+
+    <section id="publications">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Publications
+        </h2>
+
+        <p class="section-subtitle">
+          Research publications and collaborative work.
+        </p>
+
+
+        <div class="publication">
+
+          <h3>
+            LlamaRG: A Multi-View Large Language Model
+            for Radiology Report Generation
+          </h3>
+
+          <p>
+            T. Jayas, A. Rastogi, P. Raghavan,
+            G. Brugnarra, K. Schlamp,
+            M. Foltyn-Dumitru, P. Vollmuth
+          </p>
+
+          <p class="publication-venue">
+            Findings of the IEEE/CVF Conference on
+            Computer Vision and Pattern Recognition
+            (CVPR Findings), 2026
+          </p>
 
         </div>
 
 
-      </article>
+        <div class="publication">
 
+          <h3>
+            Analysis on Semantic Categorization Technique
+            of Analogous Label Using Deep Learning
+          </h3>
 
+          <p>
+            S. R. S, B. Sriman, P. Raghavan,
+            N. R. G, T. Sunitha, G. Thiyagarajan
+          </p>
 
-      <article class="project-card">
-
-
-        <div class="project-type">
-          NATURAL LANGUAGE PROCESSING
-        </div>
-
-
-        <h3>
-          Multilingual Article Classification
-        </h3>
-
-
-        <p>
-
-          Built multilingual document classifiers using XLM-R and
-          mBERT with attention mechanisms for cross-lingual news
-          classification.
-
-        </p>
-
-
-        <div class="tags">
-
-          <span class="tag">XLM-R</span>
-
-          <span class="tag">mBERT</span>
-
-          <span class="tag">Transformers</span>
-
-          <span class="tag">PyTorch</span>
+          <p class="publication-venue">
+            International Conference on Innovative Computing,
+            Intelligent Communication and Smart Electrical
+            Systems (ICSES), 2022
+          </p>
 
         </div>
 
+      </div>
 
-      </article>
-
-
-
-      <article class="project-card">
+    </section>
 
 
-        <div class="project-type">
-          SEQUENTIAL LEARNING
-        </div>
+    <!-- TECHNICAL PROFILE -->
 
+    <section class="technical-section">
 
-        <h3>
-          Personalized Sequential POI Recommendation
-        </h3>
+      <div class="container">
 
+        <h2 class="section-title">
+          Technical Profile
+        </h2>
 
-        <p>
-
-          Designed an LSTM-based sequential recommendation model
-          using spatial and temporal feature engineering for
-          personalized point-of-interest prediction.
-
+        <p class="section-subtitle">
+          Tools, methods and research areas I work with.
         </p>
 
 
-        <div class="tags">
+        <div class="skills-grid">
 
-          <span class="tag">PyTorch</span>
+          <div class="skill-group">
+            <h3>Programming</h3>
+            <p>Python</p>
+          </div>
 
-          <span class="tag">LSTM</span>
+          <div class="skill-group">
+            <h3>Frameworks & Libraries</h3>
+            <p>
+              PyTorch · HuggingFace Transformers ·
+              OpenCV · NumPy · Pandas
+            </p>
+          </div>
 
-          <span class="tag">Sequential Recommendation</span>
+          <div class="skill-group">
+            <h3>AI & Machine Learning</h3>
+            <p>
+              Deep Learning · Reinforcement Learning ·
+              Flow Matching · Vision-Language Models ·
+              Transformers
+            </p>
+          </div>
 
-          <span class="tag">Geospatial Features</span>
+          <div class="skill-group">
+            <h3>Computer Vision</h3>
+            <p>
+              3D Human Pose Estimation · Motion Forecasting ·
+              Instance Segmentation · Object Detection ·
+              Medical Image Analysis
+            </p>
+          </div>
 
-        </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <p>
+              Git · Linux · CUDA · LaTeX
+            </p>
+          </div>
 
-
-      </article>
-
-
-
-      <article class="project-card">
-
-
-        <div class="project-type">
-          COMPUTER VISION
-        </div>
-
-
-        <h3>
-          Deepfake Video Detection
-        </h3>
-
-
-        <p>
-
-          Developed a frame-level deepfake detection pipeline using
-          handcrafted visual features and an MLP classifier,
-          evaluated on FaceForensics++.
-
-        </p>
-
-
-        <div class="tags">
-
-          <span class="tag">Python</span>
-
-          <span class="tag">OpenCV</span>
-
-          <span class="tag">MLP</span>
-
-          <span class="tag">FaceForensics++</span>
+          <div class="skill-group">
+            <h3>Research Areas</h3>
+            <p>
+              Computer Vision · Generative AI · Human Motion ·
+              Vision-Language Models · Multimodal Learning ·
+              Embodied AI
+            </p>
+          </div>
 
         </div>
 
-
-      </article>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ==========================================================
-     PUBLICATIONS
-========================================================== -->
-
-<section id="publications">
-
-  <div class="container">
-
-
-    <h2 class="section-title">
-      Publications
-    </h2>
-
-
-    <p class="section-subtitle">
-      Research publications and collaborative work.
-    </p>
-
-
-
-    <div class="publication">
-
-
-      <h3>
-
-        LlamaRG: A Multi-View Large Language Model for
-        Radiology Report Generation
-
-      </h3>
-
-
-      <p>
-
-        T. Jayas, A. Rastogi, P. Raghavan, G. Brugnarra,
-        K. Schlamp, M. Foltyn-Dumitru, P. Vollmuth
-
-      </p>
-
-
-      <p class="publication-venue">
-
-        Findings of the IEEE/CVF Conference on Computer Vision
-        and Pattern Recognition (CVPR Findings), 2026
-
-      </p>
-
-
-    </div>
-
-
-
-    <div class="publication">
-
-
-      <h3>
-
-        Analysis on Semantic Categorization Technique of
-        Analogous Label Using Deep Learning
-
-      </h3>
-
-
-      <p>
-
-        S. R. S, B. Sriman, P. Raghavan, N. R. G,
-        T. Sunitha, G. Thiyagarajan
-
-      </p>
-
-
-      <p class="publication-venue">
-
-        International Conference on Innovative Computing,
-        Intelligent Communication and Smart Electrical Systems
-        (ICSES), 2022
-
-      </p>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ==========================================================
-     TECHNICAL PROFILE
-========================================================== -->
-
-<section class="technical-section">
-
-  <div class="container">
-
-
-    <h2 class="section-title">
-      Technical Profile
-    </h2>
-
-
-    <p class="section-subtitle">
-      Tools, methods and research areas I work with.
-    </p>
-
-
-
-    <div class="skills-grid">
-
-
-
-      <div class="skill-group">
-
-        <h3>Programming</h3>
-
-        <p>Python</p>
-
       </div>
 
+    </section>
 
 
-      <div class="skill-group">
+    <!-- EDUCATION -->
 
-        <h3>Frameworks & Libraries</h3>
+    <section class="education-section">
 
-        <p>
+      <div class="container">
 
-          PyTorch · HuggingFace Transformers · OpenCV ·
-          NumPy · Pandas
+        <h2 class="section-title">
+          Education
+        </h2>
 
+        <p class="section-subtitle">
+          Academic background.
         </p>
 
+
+        <div class="education-item">
+
+          <h3>
+            University of Bonn · Germany
+          </h3>
+
+          <div class="degree">
+            M.Sc. Computer Science · 2024 – Present
+          </div>
+
+          <p>
+            Focus: Computer Vision and Intelligent Systems,
+            including Machine Learning, Reinforcement Learning
+            and Natural Language Processing.
+          </p>
+
+        </div>
+
+
+        <div class="education-item">
+
+          <h3>
+            Rajalakshmi Institute of Technology ·
+            Anna University · India
+          </h3>
+
+          <div class="degree">
+            Bachelor of Engineering · 2019 – 2023
+          </div>
+
+        </div>
+
       </div>
 
+    </section>
 
 
-      <div class="skill-group">
+    <!-- CONTACT -->
 
-        <h3>AI & Machine Learning</h3>
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <h2 class="section-title">
+          Let's Connect
+        </h2>
 
         <p>
-
-          Deep Learning · Reinforcement Learning · Flow Matching ·
-          Vision-Language Models · Transformers
-
+          I'm interested in research and engineering opportunities
+          in computer vision, generative AI, 3D vision,
+          human motion, multimodal learning and embodied
+          intelligence.
         </p>
 
-      </div>
 
+        <div class="contact-buttons">
 
+          <a
+            class="button button-primary"
+            href="mailto:pavithra.r.31001@gmail.com"
+          >
+            Email Me
+          </a>
 
-      <div class="skill-group">
+          <a
+            class="button button-secondary"
+            href="https://github.com/pavithraraghavan"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
 
-        <h3>Computer Vision</h3>
+          <a
+            class="button button-secondary"
+            href="assets/Pavithra_Raghavan_CV.pdf"
+            target="_blank"
+          >
+            CV
+          </a>
 
-        <p>
-
-          3D Human Pose Estimation · Motion Forecasting ·
-          Instance Segmentation · Object Detection ·
-          Medical Image Analysis
-
-        </p>
-
-      </div>
-
-
-
-      <div class="skill-group">
-
-        <h3>Tools</h3>
-
-        <p>
-          Git · Linux · CUDA · LaTeX
-        </p>
-
-      </div>
-
-
-
-      <div class="skill-group">
-
-        <h3>Research Areas</h3>
-
-        <p>
-
-          Computer Vision · Generative AI · Human Motion ·
-          Vision-Language Models · Multimodal Learning · Embodied AI
-
-        </p>
+        </div>
 
       </div>
 
+    </section>
 
-    </div>
 
+  </main>
 
-  </div>
 
-</section>
+  <!-- FOOTER -->
 
+  <footer>
+    © 2026 Pavithra Raghavan · GitHub Pages
+  </footer>
 
 
-<!-- ==========================================================
-     EDUCATION
-========================================================== -->
-
-<section class="education-section">
-
-  <div class="container">
-
-
-    <h2 class="section-title">
-      Education
-    </h2>
-
-
-    <p class="section-subtitle">
-      Academic background.
-    </p>
-
-
-
-    <div class="education-item">
-
-
-      <h3>
-        University of Bonn · Germany
-      </h3>
-
-
-      <div class="degree">
-
-        M.Sc. Computer Science · 2024 – Present
-
-      </div>
-
-
-      <p>
-
-        Focus: Computer Vision and Intelligent Systems,
-        including Machine Learning, Reinforcement Learning
-        and Natural Language Processing.
-
-      </p>
-
-
-    </div>
-
-
-
-    <div class="education-item">
-
-
-      <h3>
-
-        Rajalakshmi Institute of Technology ·
-        Anna University · India
-
-      </h3>
-
-
-      <div class="degree">
-
-        Bachelor of Engineering · 2019 – 2023
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ==========================================================
-     CONTACT
-========================================================== -->
-
-<section id="contact" class="contact">
-
-  <div class="container">
-
-
-    <h2 class="section-title">
-      Let's Connect
-    </h2>
-
-
-    <p>
-
-      I'm interested in research and engineering opportunities
-      in computer vision, generative AI, 3D vision, human motion,
-      multimodal learning and embodied intelligence.
-
-    </p>
-
-
-
-    <div class="contact-buttons">
-
-
-      <a
-        class="button button-primary"
-        href="mailto:pavithra.r.31001@gmail.com">
-
-        Email Me
-
-      </a>
-
-
-      <a
-        class="button button-secondary"
-        href="https://github.com/pavithraraghavan"
-        target="_blank">
-
-        GitHub
-
-      </a>
-
-
-      <a
-        class="button button-secondary"
-        href="Pavithra_Raghavan_CV.pdf"
-        target="_blank">
-
-        CV
-
-      </a>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-</main>
-
-
-
-<!-- ==========================================================
-     FOOTER
-========================================================== -->
-
-<footer>
-
-  © 2026 Pavithra Raghavan · GitHub Pages
-
-</footer>
-
+  <!-- JAVASCRIPT -->
+  <script src="js/main.js"></script>
 
 </body>
 
