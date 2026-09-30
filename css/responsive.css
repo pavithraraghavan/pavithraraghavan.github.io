@@ -4,71 +4,66 @@
     scroll-padding-top: 60px;
   }
 
+
   .nav-links {
     display: none;
   }
 
+
+  /* Don't keep profile header fixed on mobile */
+
   .profile-header {
     position: relative;
+
     top: auto;
 
-    padding: 34px 0;
+    padding: 30px 0;
   }
 
-  .profile-header-grid {
-    grid-template-columns: 1fr;
 
-    gap: 20px;
+  .profile-header-content {
+    flex-direction: column;
 
-    text-align: center;
+    gap: 16px;
   }
+
 
   .profile-photo {
-    width: 150px;
-    height: 150px;
-
-    margin: 0 auto;
+    width: 125px;
+    height: 125px;
   }
 
-  .profile-info {
-    display: block;
-  }
 
   .profile-info h1 {
     font-size: 2.15rem;
   }
 
-  .profile-info h2 {
-    margin-bottom: 17px;
 
-    font-size: 1rem;
+  .profile-focus {
+    font-size: 0.90rem;
   }
 
-  .profile-details {
-    width: 100%;
 
-    margin-bottom: 15px;
+  .profile-university {
+    font-size: 0.82rem;
 
-    text-align: left;
+    margin-bottom: 12px;
   }
 
-  .profile-detail {
-    grid-template-columns: 80px 1fr;
-
-    font-size: 0.86rem;
-  }
 
   .hero-buttons {
     justify-content: center;
-
-    margin-top: 0;
   }
+
 
   .profile-header .button {
-    padding: 7px 14px;
+    padding: 6px 12px;
 
-    font-size: 0.84rem;
+    font-size: 0.80rem;
   }
+
+
+  /* OTHER SECTIONS */
 
   .about-grid {
     grid-template-columns: 1fr;
@@ -76,22 +71,26 @@
     gap: 28px;
   }
 
+
   .research-section-header {
     grid-template-columns: 1fr;
 
     gap: 8px;
   }
 
+
   .project-grid,
   .skills-grid {
     grid-template-columns: 1fr;
   }
+
 
   .experience-item {
     grid-template-columns: 1fr;
 
     gap: 6px;
   }
+
 
   section {
     padding: 46px 0;
