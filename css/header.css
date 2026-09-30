@@ -89,18 +89,22 @@
   width: 100%;
 }
 
+/* ==========================================================
+   PROFILE HEADER
+========================================================== */
+
 .profile-header {
   position: sticky;
   top: var(--nav-height);
   z-index: 900;
 
-  padding: 20px 0 22px;
+  padding: 22px 0 24px;
 
   background:
     radial-gradient(
-      circle at 78% 25%,
-      rgba(255,255,255,0.09) 0%,
-      rgba(255,255,255,0.02) 25%,
+      circle at 75% 20%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 25%,
       transparent 42%
     ),
     linear-gradient(
@@ -113,18 +117,21 @@
 
   color: white;
 
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid #111111;
 
   box-shadow:
-    0 7px 14px rgba(34,10,17,0.16),
-    0 17px 28px rgba(34,10,17,0.09);
+    0 7px 14px rgba(34, 10, 17, 0.16),
+    0 17px 28px rgba(34, 10, 17, 0.09);
 }
 
+
+/* Soft gradient shadow below header */
 
 .profile-header::after {
   content: "";
 
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: -15px;
@@ -136,43 +143,49 @@
   background:
     linear-gradient(
       to bottom,
-      rgba(55,15,27,0.14),
-      rgba(55,15,27,0.05),
+      rgba(55, 15, 27, 0.14),
+      rgba(55, 15, 27, 0.05),
       transparent
     );
 }
 
 
-/* Main layout */
+/* ==========================================================
+   HEADER CONTENT
+========================================================== */
 
-.profile-header-grid {
-  display: grid;
-
-  grid-template-columns: 135px 1fr;
-
-  gap: 28px;
+.profile-header-content {
+  display: flex;
 
   align-items: center;
+  justify-content: center;
+
+  gap: 32px;
 }
 
 
-/* Photo */
+/* ==========================================================
+   PROFILE PHOTO
+========================================================== */
 
 .profile-photo {
-  width: 130px;
-  height: 130px;
+  width: 125px;
+  height: 125px;
+
+  flex-shrink: 0;
 
   padding: 2px;
 
-  border: 1px solid var(--black);
+  overflow: hidden;
+
+  /* thin BLACK border */
+  border: 1px solid #111111;
   border-radius: 50%;
 
-  background: var(--beige);
+  background: transparent;
 
   box-shadow:
-    0 7px 18px rgba(0,0,0,0.20);
-
-  overflow: hidden;
+    0 7px 18px rgba(0, 0, 0, 0.22);
 }
 
 
@@ -189,131 +202,112 @@
 }
 
 
-/* Information area */
+/* ==========================================================
+   PROFILE INFORMATION
+========================================================== */
 
 .profile-info {
-  display: grid;
-
-  grid-template-columns:
-    minmax(280px, 0.9fr)
-    minmax(390px, 1.2fr);
-
-  column-gap: 35px;
-
-  align-items: center;
-}
-
-
-/* Label */
-
-.profile-label {
-  grid-column: 1;
-
-  color: #E9CCD3;
-
-  font-size: 0.67rem;
-  font-weight: 750;
-
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-
-  margin-bottom: 2px;
-}
-
-
-/* Name */
-
-.profile-info h1 {
-  grid-column: 1;
-
-  color: white;
-
-  font-size: clamp(1.9rem, 3vw, 2.55rem);
-
-  line-height: 1.03;
-
-  letter-spacing: -0.04em;
-
-  margin-bottom: 4px;
-}
-
-
-/* Position */
-
-.profile-info h2 {
-  grid-column: 1;
-
-  color: #F0DCE1;
-
-  font-size: 0.95rem;
-  font-weight: 500;
-
-  margin: 0;
-}
-
-
-/* Details on right */
-
-.profile-details {
-  grid-column: 2;
-
-  grid-row: 1 / span 3;
-
-  width: 100%;
-  min-width: 0;
-
-  padding: 9px 13px;
-
-  margin: 0;
-
-  border: 1px solid rgba(0,0,0,0.50);
-  border-radius: 6px;
-
-  background: rgba(0,0,0,0.09);
-}
-
-
-.profile-detail {
-  display: grid;
-
-  grid-template-columns: 73px 1fr;
-
-  gap: 9px;
-
-  padding: 2px 0;
-
-  color: #E8DDE0;
-
-  font-size: 0.79rem;
-
-  line-height: 1.4;
-}
-
-
-.detail-label {
-  color: white;
-
-  font-weight: 650;
-}
-
-
-/* Buttons */
-
-.hero-buttons {
-  grid-column: 2;
-
   display: flex;
 
-  gap: 6px;
+  flex-direction: column;
 
-  margin-top: 8px;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* NAME */
+
+.profile-info h1 {
+  margin: 0 0 4px;
+
+  color: #FFFFFF;
+
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+}
+
+
+/* RESEARCH FOCUS — ONE LINE */
+
+.profile-focus {
+  color: #F1DCE2;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  letter-spacing: 0.015em;
+
+  margin-bottom: 3px;
+}
+
+
+/* UNIVERSITY / DEGREE — SECOND LINE */
+
+.profile-university {
+  color: #D8C8CC;
+
+  font-size: 0.84rem;
+  font-weight: 400;
+
+  margin-bottom: 13px;
+}
+
+
+/* ==========================================================
+   HEADER BUTTONS
+========================================================== */
+
+.hero-buttons {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
 }
 
 
 .profile-header .button {
-  padding: 5px 11px;
+  padding: 5px 12px;
 
+  border: 1px solid #111111;
   border-radius: 4px;
 
-  font-size: 0.75rem;
+  font-size: 0.77rem;
+  font-weight: 600;
+}
+
+
+/* RESEARCH */
+
+.profile-header .button-primary {
+  background: var(--beige);
+
+  color: #34101A;
+}
+
+
+.profile-header .button-primary:hover {
+  background: #FFFFFF;
+}
+
+
+/* GITHUB / CV */
+
+.profile-header .button-secondary {
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #FFFFFF;
+
+  border-color: #111111;
+}
+
+
+.profile-header .button-secondary:hover {
+  background: rgba(0, 0, 0, 0.12);
 }
