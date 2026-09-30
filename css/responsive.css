@@ -1,131 +1,74 @@
-/* ==========================================================
-   TABLET / MOBILE
-========================================================== */
-
 @media (max-width: 800px) {
 
   html {
     scroll-padding-top: 60px;
   }
 
-
-  /* Navigation */
-
   .nav-links {
     display: none;
   }
 
-
-  /* Header no longer sticky on mobile */
-
-  .profile-header,
-  .profile-header.compact {
+  .profile-header {
     position: relative;
-
     top: auto;
 
-    padding: 40px 0;
+    padding: 34px 0;
   }
 
-
-  .profile-header-grid,
-  .profile-header.compact .profile-header-grid {
+  .profile-header-grid {
     grid-template-columns: 1fr;
 
-    gap: 23px;
+    gap: 20px;
 
     text-align: center;
   }
 
-
-  /* Photo */
-
-  .profile-photo,
-  .profile-header.compact .profile-photo {
-    width: 165px;
-    height: 165px;
+  .profile-photo {
+    width: 150px;
+    height: 150px;
 
     margin: 0 auto;
-
-    padding: 2px;
   }
 
-
-  /* Restore normal header contents */
-
-  .profile-header.compact .profile-label {
+  .profile-info {
     display: block;
   }
 
-  .profile-header.compact .profile-info {
-    display: block;
+  .profile-info h1 {
+    font-size: 2.15rem;
   }
 
-  .profile-header.compact .profile-info h1 {
-    margin-bottom: 5px;
-
-    font-size: 2.25rem;
-  }
-
-  .profile-header.compact .profile-info h2 {
-    margin-bottom: 18px;
+  .profile-info h2 {
+    margin-bottom: 17px;
 
     font-size: 1rem;
   }
 
-
-  /* Details */
-
-  .profile-details,
-  .profile-header.compact .profile-details {
+  .profile-details {
     width: 100%;
-    min-width: 0;
 
-    padding: 11px 15px;
-    margin-bottom: 18px;
-
-    border: 1px solid rgba(0, 0, 0, 0.48);
-    border-radius: 7px;
-
-    background: rgba(0, 0, 0, 0.10);
+    margin-bottom: 15px;
 
     text-align: left;
   }
 
-  .profile-header.compact .education-detail {
-    display: grid;
-  }
-
-  .profile-detail,
-  .profile-header.compact .profile-detail {
+  .profile-detail {
     grid-template-columns: 80px 1fr;
 
-    padding: 3px 0;
-
-    font-size: 0.90rem;
+    font-size: 0.86rem;
   }
 
-
-  /* Buttons */
-
-  .hero-buttons,
-  .profile-header.compact .hero-buttons {
-    display: flex;
+  .hero-buttons {
     justify-content: center;
+
+    margin-top: 0;
   }
 
-  .profile-header.compact .research-button {
-    display: inline-block;
+  .profile-header .button {
+    padding: 7px 14px;
+
+    font-size: 0.84rem;
   }
-
-  .profile-header.compact .hero-buttons .button {
-    padding: 8px 16px;
-
-    font-size: 0.90rem;
-  }
-
-
-  /* Main sections */
 
   .about-grid {
     grid-template-columns: 1fr;
@@ -153,40 +96,4 @@
   section {
     padding: 46px 0;
   }
-}
-
-
-/* ==========================================================
-   SMALL MOBILE
-========================================================== */
-
-@media (max-width: 500px) {
-
-  .container {
-    width: 90%;
-  }
-
-  .profile-info h1,
-  .profile-header.compact .profile-info h1 {
-    font-size: 2.15rem;
-  }
-
-  .profile-info h2,
-  .profile-header.compact .profile-info h2 {
-    font-size: 1rem;
-  }
-
-  .profile-detail,
-  .profile-header.compact .profile-detail {
-    grid-template-columns: 1fr;
-
-    gap: 0;
-
-    margin-bottom: 8px;
-  }
-
-  .detail-label {
-    color: #E9CCD3;
-  }
-
 }
