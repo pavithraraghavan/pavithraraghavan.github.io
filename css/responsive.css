@@ -1,17 +1,5 @@
 @media (max-width: 800px) {
 
-  html {
-    scroll-padding-top: 60px;
-  }
-
-
-  .nav-links {
-    display: none;
-  }
-
-
-  /* Don't keep profile header fixed on mobile */
-
   .profile-header {
     position: relative;
 
@@ -22,15 +10,34 @@
 
 
   .profile-header-content {
-    flex-direction: column;
+    grid-template-columns: 1fr;
 
-    gap: 16px;
+    gap: 20px;
+
+    text-align: center;
   }
 
 
+  /*
+     On mobile put image above the text
+  */
+
   .profile-photo {
-    width: 125px;
-    height: 125px;
+    grid-row: 1;
+
+    width: 130px;
+    height: 130px;
+
+    margin: 0 auto;
+  }
+
+
+  .profile-info {
+    grid-row: 2;
+
+    align-items: center;
+
+    text-align: center;
   }
 
 
@@ -47,7 +54,7 @@
   .profile-university {
     font-size: 0.82rem;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
 
@@ -55,44 +62,4 @@
     justify-content: center;
   }
 
-
-  .profile-header .button {
-    padding: 6px 12px;
-
-    font-size: 0.80rem;
-  }
-
-
-  /* OTHER SECTIONS */
-
-  .about-grid {
-    grid-template-columns: 1fr;
-
-    gap: 28px;
-  }
-
-
-  .research-section-header {
-    grid-template-columns: 1fr;
-
-    gap: 8px;
-  }
-
-
-  .project-grid,
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  .experience-item {
-    grid-template-columns: 1fr;
-
-    gap: 6px;
-  }
-
-
-  section {
-    padding: 46px 0;
-  }
 }
