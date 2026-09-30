@@ -123,15 +123,23 @@
 ========================================= */
 
 .profile-header {
-  padding: 55px 0;
+  padding: 58px 0;
+
   background:
+    radial-gradient(
+      circle at 82% 30%,
+      rgba(255, 255, 255, 0.10) 0%,
+      transparent 28%
+    ),
     linear-gradient(
-      110deg,
-      #ffffff 0%,
-      #ffffff 60%,
-      #faf4f6 100%
+      120deg,
+      #2B0B14 0%,
+      #501326 45%,
+      #7A1F35 100%
     );
-  border-bottom: 1px solid #eee5e7;
+
+  color: white;
+  border-bottom: none;
 }
 
 .profile-header-grid {
@@ -140,18 +148,42 @@
   gap: 52px;
   align-items: center;
 }
+ .profile-header .button-primary {
+  background: #FFFFFF;
+  color: #65182D;
+  border: 1px solid #FFFFFF;
+}
+
+.profile-header .button-primary:hover {
+  background: #F7ECEF;
+  border-color: #F7ECEF;
+}
+.profile-header .button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.profile-header .button-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
 
 
 /* PROFILE PHOTO */
-
 .profile-photo {
   width: 205px;
   height: 205px;
   border-radius: 50%;
   padding: 5px;
+
   background: white;
-  border: 2px solid #ead9de;
-  box-shadow: 0 14px 32px rgba(80, 25, 40, 0.12);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.25);
+
   overflow: hidden;
 }
 
@@ -164,53 +196,42 @@
   display: block;
 }
 
-
 /* PROFILE TEXT */
 
 .profile-label {
-  color: #7A1F35;
+  color: #EBCBD4;
   font-size: 0.78rem;
   font-weight: 750;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 }
 
 .profile-info h1 {
   font-size: clamp(2.5rem, 4.5vw, 3.8rem);
   line-height: 1.05;
   letter-spacing: -0.045em;
-  color: #111111;
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 
 .profile-info h2 {
-  color: #7A1F35;
+  color: #F2DCE2;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 22px;
-}
-
-
-/* CURRENT POSITION / EDUCATION / FOCUS */
-
-.profile-details {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 24px;
 }
 
 .profile-detail {
   display: grid;
   grid-template-columns: 82px 1fr;
   gap: 12px;
-  color: #555555;
+  color: #E8DDE0;
   font-size: 0.95rem;
 }
 
 .detail-label {
-  color: #222222;
+  color: #FFFFFF;
   font-weight: 650;
 }
 
@@ -296,6 +317,17 @@
       margin-bottom: 30px;
     }
 
+    .about-section {
+  background:
+    linear-gradient(
+      180deg,
+      #FFF9FA 0%,
+      #FFFFFF 100%
+    );
+
+  border-bottom: 1px solid #F0E5E8;
+}
+
     .about-heading .small-heading {
       color: #7A1F35;
       font-size: 0.78rem;
@@ -304,6 +336,9 @@
       text-transform: uppercase;
       margin-bottom: 6px;
     }
+    .about-heading .section-title {
+  color: #171214;
+}
 
     .about-grid {
       display: grid;
@@ -335,14 +370,15 @@
        RESEARCH INTERESTS
     ========================================== */
 
-    .interests {
-      width: 100%;
-      padding: 25px 26px;
-      border-radius: 14px;
-      background: #FCF8F9;
-      border: 1px solid #E8D9DD;
-      border-left: 4px solid #7A1F35;
-    }
+ .interests {
+  width: 100%;
+  padding: 25px 26px;
+  border-radius: 14px;
+
+  background: #F8EFF2;
+  border: 1px solid #E7D2D8;
+  border-left: 4px solid #7A1F35;
+}
 
     .interests h3 {
       margin-bottom: 14px;
@@ -890,7 +926,7 @@
      ABOUT
 ========================================== -->
 
-<section id="about">
+<section id="about" class="about-section">
 
   <div class="container">
 
