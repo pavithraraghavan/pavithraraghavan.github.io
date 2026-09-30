@@ -88,31 +88,30 @@
 .nav-links a:hover::after {
   width: 100%;
 }
-
 /* ==========================================================
    PROFILE HEADER
 ========================================================== */
 
 .profile-header {
   position: sticky;
+
   top: var(--nav-height);
+
   z-index: 900;
 
-  padding: 22px 0 24px;
+  padding: 25px 0;
 
   background:
     radial-gradient(
-      circle at 75% 20%,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.02) 25%,
-      transparent 42%
+      circle at 82% 30%,
+      rgba(255, 255, 255, 0.07) 0%,
+      transparent 30%
     ),
     linear-gradient(
-      118deg,
-      var(--maroon-dark) 0%,
-      var(--maroon-mid) 38%,
-      var(--maroon) 72%,
-      var(--maroon-light) 100%
+      115deg,
+      #2A0911 0%,
+      #48101F 45%,
+      #7A1F3A 100%
     );
 
   color: white;
@@ -120,12 +119,12 @@
   border-bottom: 1px solid #111111;
 
   box-shadow:
-    0 7px 14px rgba(34, 10, 17, 0.16),
-    0 17px 28px rgba(34, 10, 17, 0.09);
+    0 7px 15px rgba(40, 10, 18, 0.17),
+    0 18px 30px rgba(40, 10, 18, 0.08);
 }
 
 
-/* Soft gradient shadow below header */
+/* subtle shadow underneath */
 
 .profile-header::after {
   content: "";
@@ -151,41 +150,160 @@
 
 
 /* ==========================================================
-   HEADER CONTENT
+   HEADER LAYOUT
 ========================================================== */
 
 .profile-header-content {
-  display: flex;
+  display: grid;
+
+  /*
+     Text takes most of the width.
+     Photo occupies the right side.
+  */
+  grid-template-columns: 1fr auto;
+
+  gap: 55px;
 
   align-items: center;
-  justify-content: center;
-
-  gap: 32px;
 }
 
 
 /* ==========================================================
-   PROFILE PHOTO
+   LEFT — PROFILE INFORMATION
+========================================================== */
+
+.profile-info {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  text-align: left;
+}
+
+
+/* Name */
+
+.profile-info h1 {
+  margin: 0 0 7px;
+
+  color: #FFFFFF;
+
+  font-size: clamp(2.15rem, 3.6vw, 3rem);
+
+  line-height: 1.04;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* Main research line */
+
+.profile-focus {
+  margin-bottom: 4px;
+
+  color: #F2DDE3;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* University */
+
+.profile-university {
+  margin-bottom: 17px;
+
+  color: #DCCDD1;
+
+  font-size: 0.90rem;
+  font-weight: 400;
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.hero-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.profile-header .button {
+  padding: 6px 13px;
+
+  border: 1px solid #111111;
+
+  border-radius: 4px;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+
+/* Research */
+
+.profile-header .button-primary {
+  background: #6F1931;
+
+  color: #FFFFFF;
+}
+
+
+.profile-header .button-primary:hover {
+  background: #851E3A;
+}
+
+
+/* GitHub + CV */
+
+.profile-header .button-secondary {
+  background: #F5F0E8;
+
+  color: #171214;
+
+  border-color: #111111;
+}
+
+
+.profile-header .button-secondary:hover {
+  background: #FFFFFF;
+}
+
+
+/* ==========================================================
+   RIGHT — PROFILE PHOTO
 ========================================================== */
 
 .profile-photo {
-  width: 125px;
-  height: 125px;
+  width: 145px;
+  height: 145px;
 
   flex-shrink: 0;
 
-  padding: 2px;
+  padding: 0;
 
   overflow: hidden;
 
-  /* thin BLACK border */
-  border: 1px solid #111111;
+  /*
+     Thin black border — no white ring
+  */
+  border: 1.5px solid #111111;
+
   border-radius: 50%;
 
   background: transparent;
 
   box-shadow:
-    0 7px 18px rgba(0, 0, 0, 0.22);
+    0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -199,112 +317,6 @@
   object-position: center;
 
   border-radius: 50%;
-}
-
-
-/* ==========================================================
-   PROFILE INFORMATION
-========================================================== */
-
-.profile-info {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  text-align: center;
-}
-
-
-/* NAME */
-
-.profile-info h1 {
-  margin: 0 0 4px;
-
-  color: #FFFFFF;
-
-  font-size: clamp(2rem, 3.4vw, 2.7rem);
-
-  line-height: 1.05;
-
-  letter-spacing: -0.04em;
-}
-
-
-/* RESEARCH FOCUS — ONE LINE */
-
-.profile-focus {
-  color: #F1DCE2;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-
-  letter-spacing: 0.015em;
-
-  margin-bottom: 3px;
-}
-
-
-/* UNIVERSITY / DEGREE — SECOND LINE */
-
-.profile-university {
-  color: #D8C8CC;
-
-  font-size: 0.84rem;
-  font-weight: 400;
-
-  margin-bottom: 13px;
-}
-
-
-/* ==========================================================
-   HEADER BUTTONS
-========================================================== */
-
-.hero-buttons {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 7px;
-}
-
-
-.profile-header .button {
-  padding: 5px 12px;
-
-  border: 1px solid #111111;
-  border-radius: 4px;
-
-  font-size: 0.77rem;
-  font-weight: 600;
-}
-
-
-/* RESEARCH */
-
-.profile-header .button-primary {
-  background: var(--beige);
-
-  color: #34101A;
-}
-
-
-.profile-header .button-primary:hover {
-  background: #FFFFFF;
-}
-
-
-/* GITHUB / CV */
-
-.profile-header .button-secondary {
-  background: rgba(255, 255, 255, 0.04);
-
-  color: #FFFFFF;
-
-  border-color: #111111;
 }
 
 
