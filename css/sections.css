@@ -1,0 +1,503 @@
+/* ==========================================================
+   ABOUT
+========================================================== */
+
+.about-section {
+  background:
+    linear-gradient(
+      180deg,
+      #F1E9DE 0%,
+      #F6F0E7 42%,
+      var(--beige) 100%
+    );
+
+  border-bottom: 1px solid #D9CEC1;
+}
+
+.about-heading {
+  margin-bottom: 27px;
+}
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(260px, 0.65fr);
+
+  gap: 55px;
+
+  align-items: center;
+}
+
+.about-text {
+  color: var(--text);
+
+  font-size: 0.96rem;
+}
+
+.about-text p {
+  margin-bottom: 14px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-text strong {
+  color: #211D1B;
+
+  font-weight: 650;
+}
+
+
+/* Research interests */
+
+.interests {
+  width: 100%;
+
+  padding: 22px 23px;
+
+  border: 1px solid var(--black);
+  border-radius: 8px;
+
+  background: var(--beige-card);
+
+  box-shadow:
+    5px 6px 0 rgba(101, 24, 45, 0.10);
+}
+
+.interests h3 {
+  margin-bottom: 12px;
+
+  color: var(--black);
+
+  font-size: 1rem;
+}
+
+.interests ul {
+  list-style: none;
+}
+
+.interests li {
+  padding: 4px 0;
+
+  color: #504B47;
+
+  font-size: 0.91rem;
+}
+
+.interests li::before {
+  content: "—";
+
+  margin-right: 8px;
+
+  color: var(--maroon);
+
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   CURRENT RESEARCH
+========================================================== */
+
+#research {
+  background: var(--beige-light);
+}
+
+.research-section-header {
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+
+  gap: 20px;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.research-section-header::after {
+  content: "";
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      var(--maroon),
+      rgba(101, 24, 45, 0.05)
+    );
+}
+
+.research-title-wrap .eyebrow {
+  margin-bottom: 4px;
+
+  color: var(--maroon);
+
+  font-size: 0.71rem;
+  font-weight: 750;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.13em;
+}
+
+.research-title-wrap h2 {
+  color: var(--black);
+
+  font-size: 1.85rem;
+
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.research-intro {
+  max-width: 720px;
+
+  margin-bottom: 25px;
+
+  color: var(--text-muted);
+}
+
+.research-card {
+  padding: 27px 29px;
+
+  border: 1px solid var(--black);
+  border-top: 2px solid var(--maroon);
+  border-radius: 9px;
+
+  background: var(--beige);
+
+  box-shadow:
+    5px 7px 0 rgba(101, 24, 45, 0.07);
+}
+
+.research-label {
+  display: inline-block;
+
+  padding: 4px 10px;
+  margin-bottom: 13px;
+
+  border: 1px solid rgba(21, 21, 21, 0.28);
+  border-radius: 100px;
+
+  background: var(--beige-card);
+
+  color: var(--maroon);
+
+  font-size: 0.73rem;
+  font-weight: 750;
+
+  letter-spacing: 0.04em;
+}
+
+.research-card h3 {
+  margin-bottom: 6px;
+
+  color: var(--black);
+
+  font-size: 1.35rem;
+
+  line-height: 1.35;
+}
+
+.research-location {
+  margin-bottom: 15px;
+
+  color: #716B65;
+
+  font-size: 0.91rem;
+}
+
+.research-card p {
+  margin-bottom: 11px;
+
+  color: #504B47;
+}
+
+
+/* ==========================================================
+   EXPERIENCE
+========================================================== */
+
+#experience {
+  background: var(--beige);
+}
+
+.experience-item {
+  display: grid;
+
+  grid-template-columns: 165px 1fr;
+
+  gap: 32px;
+
+  padding: 24px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-date {
+  color: #756F69;
+
+  font-size: 0.91rem;
+  font-weight: 500;
+}
+
+.experience-content h3 {
+  color: var(--black);
+
+  font-size: 1.15rem;
+}
+
+.experience-company {
+  margin: 3px 0 12px;
+
+  color: var(--maroon);
+
+  font-weight: 650;
+}
+
+.experience-content ul {
+  padding-left: 20px;
+
+  color: #504B47;
+}
+
+.experience-content li {
+  margin-bottom: 6px;
+}
+
+
+/* ==========================================================
+   PROJECTS
+========================================================== */
+
+#projects {
+  background: var(--beige-light);
+}
+
+.project-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.project-card {
+  padding: 20px;
+
+  border: 1px solid var(--black);
+  border-radius: 8px;
+
+  background: var(--beige);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    5px 7px 0 rgba(101, 24, 45, 0.11);
+}
+
+.project-type {
+  margin-bottom: 7px;
+
+  color: var(--maroon);
+
+  font-size: 0.71rem;
+  font-weight: 750;
+
+  letter-spacing: 0.07em;
+}
+
+.project-card h3 {
+  margin-bottom: 9px;
+
+  color: var(--black);
+
+  font-size: 1.12rem;
+
+  line-height: 1.4;
+}
+
+.project-card p {
+  color: #5B5651;
+
+  font-size: 0.92rem;
+}
+
+
+/* ==========================================================
+   PUBLICATIONS
+========================================================== */
+
+#publications {
+  background: var(--beige);
+}
+
+.publication {
+  padding: 20px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.publication h3 {
+  margin-bottom: 5px;
+
+  color: var(--black);
+
+  font-size: 1.07rem;
+}
+
+.publication p {
+  color: #66605B;
+}
+
+.publication-venue {
+  margin-top: 5px;
+
+  color: var(--maroon) !important;
+
+  font-weight: 650;
+}
+
+
+/* ==========================================================
+   TECHNICAL PROFILE
+========================================================== */
+
+.technical-section {
+  background: var(--beige-light);
+}
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+}
+
+.skill-group {
+  padding: 17px 19px;
+
+  border: 1px solid var(--black);
+  border-radius: 7px;
+
+  background: var(--beige);
+}
+
+.skill-group h3 {
+  margin-bottom: 6px;
+
+  color: var(--maroon);
+
+  font-size: 0.94rem;
+}
+
+.skill-group p {
+  color: #5D5853;
+
+  font-size: 0.91rem;
+}
+
+
+/* ==========================================================
+   EDUCATION
+========================================================== */
+
+.education-section {
+  background: var(--beige);
+}
+
+.education-item {
+  margin-bottom: 24px;
+}
+
+.education-item h3 {
+  color: var(--black);
+
+  font-size: 1.10rem;
+}
+
+.education-item .degree {
+  margin: 2px 0;
+
+  color: var(--maroon);
+
+  font-weight: 650;
+}
+
+.education-item p {
+  color: #66605B;
+}
+
+
+/* ==========================================================
+   CONTACT
+========================================================== */
+
+.contact {
+  border-top: 1px solid var(--black);
+
+  background:
+    linear-gradient(
+      115deg,
+      #1B080D,
+      #34101A,
+      #501326
+    );
+
+  color: white;
+
+  text-align: center;
+}
+
+.contact .section-title {
+  color: white;
+}
+
+.contact p {
+  max-width: 620px;
+
+  margin: 0 auto 24px;
+
+  color: #D7CACD;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+}
+
+.contact .button-primary {
+  border: 1px solid var(--black);
+
+  background: var(--beige);
+
+  color: #301018;
+}
+
+.contact .button-secondary {
+  border: 1px solid #111;
+
+  background: transparent;
+
+  color: white;
+}
+
+.contact .button-secondary:hover {
+  background: rgba(0, 0, 0, 0.15);
+
+  color: white;
+}
