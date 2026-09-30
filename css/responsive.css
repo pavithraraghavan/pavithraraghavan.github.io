@@ -2,7 +2,6 @@
 
   .profile-header {
     position: relative;
-
     top: auto;
 
     padding: 30px 0;
@@ -10,34 +9,26 @@
 
 
   .profile-header-content {
-    grid-template-columns: 1fr;
+    display: flex;
 
-    gap: 20px;
+    flex-direction: column-reverse;
 
-    text-align: center;
-  }
-
-
-  /*
-     On mobile put image above the text
-  */
-
-  .profile-photo {
-    grid-row: 1;
-
-    width: 130px;
-    height: 130px;
-
-    margin: 0 auto;
+    gap: 18px;
   }
 
 
   .profile-info {
-    grid-row: 2;
-
     align-items: center;
 
     text-align: center;
+  }
+
+
+  .profile-photo {
+    width: 125px;
+    height: 125px;
+
+    justify-self: auto;
   }
 
 
