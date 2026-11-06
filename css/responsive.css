@@ -54,3 +54,77 @@
   }
 
 }
+
+/* =========================================
+   MOBILE LAYOUT FIX
+========================================= */
+
+@media (max-width: 800px) {
+
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  /* Prevent grid columns from squeezing text */
+  .about-grid,
+  .project-grid,
+  .skills-grid,
+  .experience-item,
+  .profile-header-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  /* Let content use the full available width */
+  .about-text,
+  .interests,
+  .research-card,
+  .project-card,
+  .experience-content,
+  .skill-group,
+  .profile-info {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Normal paragraph wrapping */
+  p, li {
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
+  }
+
+  /* Header: image above text on mobile */
+  .profile-header {
+    position: relative;
+    top: auto;
+  }
+
+  .profile-info {
+    grid-row: 2;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo {
+    grid-row: 1;
+    justify-self: center;
+    width: 125px;
+    height: 125px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
