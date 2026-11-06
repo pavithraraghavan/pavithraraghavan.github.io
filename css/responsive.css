@@ -1,130 +1,227 @@
-@media (max-width: 800px) {
 
-  .profile-header {
-    position: relative;
-    top: auto;
+/* ==========================================================
+   RESPONSIVE LAYOUT
+========================================================== */
 
-    padding: 30px 0;
-  }
-
-
+/* TABLETS */
+@media (max-width: 1000px) {
   .profile-header-content {
-    display: flex;
-
-    flex-direction: column-reverse;
-
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) 125px;
+    gap: 25px;
   }
-
-
-  .profile-info {
-    align-items: center;
-
-    text-align: center;
-  }
-
 
   .profile-photo {
     width: 125px;
     height: 125px;
-
-    justify-self: auto;
   }
 
-
-  .profile-info h1 {
-    font-size: 2.15rem;
+  .about-grid {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 25px;
   }
-
-
-  .profile-focus {
-    font-size: 0.90rem;
-  }
-
-
-  .profile-university {
-    font-size: 0.82rem;
-
-    margin-bottom: 14px;
-  }
-
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
 }
 
-/* =========================================
-   MOBILE LAYOUT FIX
-========================================= */
-
+/* MOBILE */
 @media (max-width: 800px) {
 
-  html, body {
-    width: 100%;
+  html {
+    scroll-padding-top: 65px;
+  }
+
+  html,
+  body {
     max-width: 100%;
     overflow-x: clip;
   }
 
   .container {
-    width: 90%;
+    width: calc(100% - 36px);
     max-width: 100%;
     margin-inline: auto;
   }
 
-  /* Prevent grid columns from squeezing text */
+  section {
+    padding: 40px 0;
+  }
+
+  /* NAVIGATION */
+
+  .navbar {
+    position: relative;
+  }
+
+  .nav-container {
+    min-height: 54px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  /* PROFILE HEADER */
+
+  .profile-header {
+    position: relative;
+    top: auto;
+    padding: 25px 0;
+  }
+
+  .profile-header-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .profile-info h1 {
+    font-size: clamp(1.8rem, 7vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .profile-focus {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .profile-university {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* ALL CONTENT GRIDS */
+
   .about-grid,
   .project-grid,
   .skills-grid,
   .experience-item,
-  .profile-header-content {
+  .research-section-header {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
+    gap: 20px;
   }
 
-  /* Let content use the full available width */
+  /* PREVENT NARROW CONTENT */
+
   .about-text,
   .interests,
   .research-card,
-  .project-card,
   .experience-content,
+  .project-card,
+  .publication,
   .skill-group,
-  .profile-info {
-    width: 100%;
+  .education-item,
+  .research-intro,
+  .section-subtitle {
     min-width: 0;
     max-width: 100%;
+    width: 100%;
   }
 
-  /* Normal paragraph wrapping */
-  p, li {
-    overflow-wrap: break-word;
-    word-break: normal;
+  /* TEXT */
+
+  .section-title,
+  .research-title-wrap h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text,
+  .research-card p,
+  .experience-content,
+  .project-card p,
+  .publication p,
+  .skill-group p,
+  .education-item p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  p,
+  li,
+  h1,
+  h2,
+  h3 {
     white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
-  /* Header: image above text on mobile */
-  .profile-header {
-    position: relative;
-    top: auto;
+  /* CARDS */
+
+  .research-card,
+  .project-card,
+  .skill-group,
+  .interests {
+    padding: 18px;
   }
 
-  .profile-info {
-    grid-row: 2;
-    align-items: center;
-    text-align: center;
+  /* EXPERIENCE */
+
+  .experience-item {
+    gap: 8px;
   }
 
-  .profile-photo {
-    grid-row: 1;
-    justify-self: center;
-    width: 125px;
-    height: 125px;
+  .experience-content ul {
+    padding-left: 20px;
   }
 
-  .hero-buttons {
-    justify-content: center;
+  /* TAGS */
+
+  .tags {
+    display: flex;
     flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* CONTACT */
+
+  .contact-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 380px) {
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .profile-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-focus {
+    font-size: 0.83rem;
+  }
+
+  .research-card,
+  .project-card,
+  .interests,
+  .skill-group {
+    padding: 15px;
   }
 }
